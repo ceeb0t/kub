@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"argocd","Source":"./argocd","Dir":"argocd"},{"Key":"sample_apps","Source":"./sample","Dir":""}]}
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"argocd","Source":"./argocd","Dir":"argocd"},{"Key":"sample_apps","Source":"./sample","Dir":"sample"}]}
