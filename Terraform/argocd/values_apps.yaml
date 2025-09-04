@@ -17,3 +17,17 @@ argocd-apps:
         syncOptions:
           - CreateNamespace=false
           - ApplyOutOfSyncOnly=false
+  projects:
+    - name: argocd
+      namespace: argocd
+      additionalLabels: { }
+      additionalAnnotations: { }
+      description: Argocd Project
+      sourceRepos:
+        - 'https://github.com/ceeb0t/kub.git'
+      destinations:
+        - namespace: argocd
+      clusterResourceWhitelist:
+        - group: '*'
+          kind: '*'
+  extensions: []
