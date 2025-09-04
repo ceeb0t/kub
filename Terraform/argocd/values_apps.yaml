@@ -1,0 +1,20 @@
+argocd-apps:
+  applications:
+    - name: argocd
+      namespace: argocd
+      destination:
+        namespace: argocd
+        server: https://kubernetes.default.svc
+      project: argocd
+      source:
+        path: config/argo-cd
+        repoURL: https://github.com/ceeb0t/kub.git
+        targetRevision: HEAD
+        helm:
+          releaseName: argocd
+          valueFiles:
+            - values.yaml
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=false
+          - ApplyOutOfSyncOnly=false
