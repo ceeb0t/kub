@@ -1,0 +1,33 @@
+argocd-apps:
+  applications:
+    - name: argocd
+      namespace: argocd
+      destination:
+        namespace: argocd
+      project: argocd
+      source:
+        path: argocd
+        repoURL: https://github.com/ceeb0t/kub.git
+        targetRevision: HEAD
+        helm:
+          releaseName: argocd
+          valueFiles:
+            - values.yaml
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=false
+          - ApplyOutOfSyncOnly=false
+  projects:
+    - name: argocd
+      namespace: argocd
+      additionalLabels: { }
+      additionalAnnotations: { }
+      description: Argocd Project
+      sourceRepos:
+        - 'https://github.com/ceeb0t/kub.git'
+      destinations:
+        - namespace: argocd
+      clusterResourceWhitelist:
+        - group: '*'
+          kind: '*'
+  extensions: []
