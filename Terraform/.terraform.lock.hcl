@@ -38,3 +38,18 @@ provider "registry.terraform.io/hashicorp/kubernetes" {
     "zh:faf23e45f0090eef8ba28a8aac7ec5d4fdf11a36c40a8d286304567d71c1e7db",
   ]
 }
+
+provider "registry.terraform.io/jojand/argocd" {
+  version     = "2.3.2"
+  constraints = "2.3.2"
+  hashes = [
+    "h1:fqJAuOIvTew59PLXKQc3XiLEhRdrbGSFEBKS784SZpw=",
+    "zh:030096033c58d34b6ee79e89a773d0786999a946e500e0e208d9bbca25b0863c",
+    "zh:32f640321f5fe265adf8533dc23299035db82c5b179671d31b435d5894c3a664",
+    "zh:3c619f7061b05ae2190f590e65d54a98f7199cc1b279ddc3579519e69df7ba94",
+    "zh:9fbcfbd65a7d641f7f3fe95b07f009b198dcec24384125a21b29cd87eb040fda",
+    "zh:aa5979a1a2746061db0a0f26c30bc634b2e9a57238f0f528b40b5f515a8d4089",
+    "zh:e3e7bf33796b2f4f2ec61a96fc037ef69f1d65f66eff5006463d0af3ea258f01",
+    "zh:e9fb5e202946192ba1d5ac06d43505c5ac080090140396057be7a884e3f5fd86",
+  ]
+}

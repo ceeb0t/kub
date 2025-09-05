@@ -1,1 +1,0 @@
-cilium install --version 1.18.1
