@@ -86,13 +86,13 @@ spec:
             - name: library
               mountPath: /usr/src/app/upload
               subPath: library
-            # - name: ext-library
-            #   mountPath: /photos
-            #   subPath: photos
+            - name: nfs-library
+              mountPath: /photos
+              subPath: photos
       volumes:
         - name: library
           persistentVolumeClaim:
             claimName: immich-library-pvc
-        # - name: ext-library
-        #   persistentVolumeClaim:
-        #     claimName: nas-photos-pvc
+        - name: nfs-library
+          persistentVolumeClaim:
+            claimName: immich-nfs-library-pvc
