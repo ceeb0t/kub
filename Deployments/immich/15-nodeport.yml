@@ -10,4 +10,4 @@ spec:
     nodePort: 30112
     protocol: TCP
   selector:
-    app: web
+    app: immich-server
