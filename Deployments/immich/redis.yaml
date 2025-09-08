@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis
+  name: redis
+  namespace: immich
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: techthinkerorg/immich-redis:v1.135.3
+          imagePullPolicy: Always
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - redis-cli ping || exit 1
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
+          ports:
+            - containerPort: 6379
+              name: db-port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: immich
+spec:
+  selector:
+    app: redis
+  type: ClusterIP
+  ports:
+    - name: db-port
+      protocol: TCP
+      port: 6379
+      targetPort: 6379
