@@ -1,5 +1,17 @@
-kind: PersistentVolume
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: photossmb
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//192.168.21.20/immich-library/"
+  csi.storage.k8s.io/node-publish-secret-name: smb-creds
+  csi.storage.k8s.io/node-publish-secret-namespace: immich
+
+---
+
 apiVersion: v1
+kind: PersistentVolume
 metadata:
   name: nas-photos-pv
   labels:
@@ -17,17 +29,4 @@ spec:
     volumeAttributes:
       source: "//192.168.21.20/immich-library/"
     nodeStageSecretRef:
-      name: smb-creds
-      namespace: immich
-
----
-
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: photossmb
-provisioner: smb.csi.k8s.io
-parameters:
-  source: "//192.168.21.20/immich-library/"
-  csi.storage.k8s.io/node-publish-secret-name: "smb-creds"
-  csi.storage.k8s.io/node-publish-secret-namespace: "immich"
+      name: smb
