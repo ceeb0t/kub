@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: immich-nodeport
+  namespace: immich
 spec:
   type: NodePort
   ports:
