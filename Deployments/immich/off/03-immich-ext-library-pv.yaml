@@ -1,0 +1,33 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: photossmb
+provisioner: smb.csi.k8s.io
+parameters:
+  source: "//192.168.1.20/immich-library/"
+  csi.storage.k8s.io/node-publish-secret-name: "smb-creds"
+  csi.storage.k8s.io/node-publish-secret-namespace: "immich"
+
+---
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nas-photos-pv
+  labels:
+    app: immich
+spec:
+  capacity:
+    storage: 200Gi  # Adjust the storage size as needed
+  accessModes:
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: photossmb
+  csi:
+    driver: smb.csi.k8s.io
+    volumeHandle: nas-photos-pv
+    volumeAttributes:
+      source: "//192.168.1.20/immich-library/"
+    nodeStageSecretRef:
+      name: smb-creds
+      namespace: immich

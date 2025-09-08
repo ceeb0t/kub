@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: immich-library-pv
+  namespace: immich
+  labels:
+    app: immich
+spec:
+  capacity:
+    storage: 100Gi  # Adjust the storage size as needed
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/Cache/immich  # Static path on the NFS server
+    server: 192.168.21.20               # Your NFS server's IP
