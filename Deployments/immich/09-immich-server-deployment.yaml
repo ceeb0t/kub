@@ -89,7 +89,7 @@ spec:
               subPath: library
             - name: nfs-library
               mountPath: /photos
-              subPath: photos
+              # subPath: photos
       volumes:
         - name: library
           persistentVolumeClaim:
