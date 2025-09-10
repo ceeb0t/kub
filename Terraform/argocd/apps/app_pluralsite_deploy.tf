@@ -25,7 +25,7 @@ resource "argocd_application" "pluralsite-deploy" {
       automated {
         prune       = true
         self_heal   = true
-        allow_empty = true
+        allow_empty = false
       }
     }
   }
