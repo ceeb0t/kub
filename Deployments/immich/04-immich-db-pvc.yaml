@@ -10,6 +10,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi  # Match or be less than the PV's capacity
+      storage: 50Gi  # Match or be less than the PV's capacity
   volumeName: immich-db-pv  # Bind explicitly to the PV created above
   storageClassName: ''

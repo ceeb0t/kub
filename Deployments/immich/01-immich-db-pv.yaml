@@ -7,7 +7,7 @@ metadata:
     app: immich-postgresql
 spec:
   capacity:
-    storage: 10Gi  # Adjust the storage size as needed
+    storage: 50Gi  # Adjust the storage size as needed
   accessModes:
     - ReadWriteMany
   nfs:
