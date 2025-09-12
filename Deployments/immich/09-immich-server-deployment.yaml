@@ -8,7 +8,7 @@ metadata:
 spec:
   replicas: 2
   strategy:
-    type: RollingUpdate
+    type: Replacement
   selector:
     matchLabels:
       app: immich-server
