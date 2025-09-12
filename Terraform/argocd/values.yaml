@@ -123,7 +123,7 @@ global:
 
   # -- Default node selector for all components
   nodeSelector:
-    kubernetes.io/os: linux
+    spec: medium
 
   # -- Default tolerations for all components
   tolerations: []

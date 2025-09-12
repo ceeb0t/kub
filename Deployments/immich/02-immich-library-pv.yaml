@@ -7,7 +7,7 @@ metadata:
     app: immich
 spec:
   capacity:
-    storage: 100Gi  # Adjust the storage size as needed
+    storage: 110Gi  # Adjust the storage size as needed
   accessModes:
     - ReadWriteMany
   nfs:
