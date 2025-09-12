@@ -19,3 +19,14 @@ resource "kubernetes_namespace" "immich" {
     name = "immich"
   }
 }
+
+resource "kubernetes_namespace" "nfd" {
+  metadata {
+
+    labels = {
+      "kubernetes.io/metadata.name" = "nfd"
+      "name" = "nfd"
+    }
+    name = "nfd"
+  }
+}

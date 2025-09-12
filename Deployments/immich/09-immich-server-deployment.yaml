@@ -67,22 +67,6 @@ spec:
             - configMapRef:
                 name: immich-env
                 optional: false
-          # livenessProbe:
-          #   failureThreshold: 120
-          #   httpGet:
-          #     path: /server/ping
-          #     port: 2283
-          #   initialDelaySeconds: 10
-          #   periodSeconds: 120
-          #   timeoutSeconds: 1
-          # readinessProbe:
-          #   failureThreshold: 120
-          #   httpGet:
-          #     path: /server/ping
-          #     port: 2283
-          #   initialDelaySeconds: 10
-          #   periodSeconds: 120
-          #   timeoutSeconds: 1
           volumeMounts:
             - name: library
               mountPath: /usr/src/app/upload
@@ -90,6 +74,8 @@ spec:
             - name: nfs-library
               mountPath: /photos
               # subPath: photos
+      nodeSelector: 
+        spec: high
       volumes:
         - name: library
           persistentVolumeClaim:
