@@ -42,6 +42,7 @@ resource "kubernetes_config_map_v1_data" "argocd-rbac-cm" {
 p, role:admin, applications, *, */*, allow
 p, role:admin, clusters, *, *, allow
 p, role:admin, repositories, *, *, allow
+p, role:admin, projects, *, *, allow
 p, role:admin, certificates, *, *, allow
 g, cee, role:admin
 g, deploy, role:admin

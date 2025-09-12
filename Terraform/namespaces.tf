@@ -20,13 +20,13 @@ resource "kubernetes_namespace" "immich" {
   }
 }
 
-resource "kubernetes_namespace" "nfd" {
+resource "kubernetes_namespace" "plugins" {
   metadata {
 
     labels = {
-      "kubernetes.io/metadata.name" = "nfd"
-      "name" = "nfd"
+      "kubernetes.io/metadata.name" = "plugins"
+      "name" = "plugins"
     }
-    name = "nfd"
+    name = "plugins"
   }
 }
