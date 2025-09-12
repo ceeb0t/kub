@@ -24,8 +24,12 @@ spec:
       enableServiceLinks: true
       containers:
         - name: immich-machine-learning
-          image: "ghcr.io/immich-app/immich-machine-learning:release"
+          image: "ghcr.io/immich-app/immich-machine-learning:release-openvino"
           imagePullPolicy: Always
+          device_cgroup_rules:
+            - 'c 189:* rmw'
+          devices:
+            - /dev/dri:/dev/dri
           ports:
             - containerPort: 3003
           env:
