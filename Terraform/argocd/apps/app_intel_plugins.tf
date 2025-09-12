@@ -54,7 +54,7 @@ resource "argocd_application" "intel-device-plugins-gpu" {
       target_revision = "0.30.0"
       helm {
         release_name = "intel-device-plugins-gpu"
-        value_files = ["values/intel_values.yaml"]
+        value_files = ["./values/intel_values.yaml"]
       }
     }
 
